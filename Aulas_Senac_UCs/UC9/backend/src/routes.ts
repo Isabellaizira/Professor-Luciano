@@ -3,6 +3,9 @@ import multer from 'multer'
 import uploadConfig from './config/multer'
 
 
+import { CriarPedidosController } from './Controller/Pedidos/CriarPedidosController'
+
+import { CriarItensController } from './Itens/CriarItensController'
 import { LoginController } from './Controller/Login/LoginController'
 import { LoginMotoqueirosController } from './Controller/Motoqueiros/LoginMotoqueirosController'
 import { CriarusuariosController } from './Controller/Usuarios/CriarUsuariosController'
@@ -42,12 +45,17 @@ router.post('/CriarUsuarios', new CriarusuariosController().handle)
 router.get('/ListarUsuarioToken', isAutenticado, new ListarUsuarioTokenController().handle)
 
 //Estrutura de Produtos
-router.post('/CriarProdutos', isAutenticado, upload.single('file'), new CriarProdutosController().handle)
+router.post('/CriarProdutos', upload.single('file'), new CriarProdutosController().handle)
 
 
 //Estrutura de Categorias
-router.post('/CriarCategorias', isAutenticado, new CriarCategoriasController().handle)
+router.post('/CriarCategorias', new CriarCategoriasController().handle)
 router.get('/ListarCategorias', isAutenticado, new ListarCategoriasController().handle)
 
+//Estrutura de Pedidos
+router.post('/CriarPedido', new CriarPedidosController().handle)
+
+
+router.post('/CriarItens', new CriarItensController().handle)
 
 export { router }
