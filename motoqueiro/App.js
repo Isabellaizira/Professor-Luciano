@@ -222,10 +222,6 @@ function Gps() {
   )
 }
 
-
-
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

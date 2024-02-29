@@ -14,7 +14,6 @@ export default function App() {
       <Stack.Navigator initialROuteName='Login'>
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Dashboard' component={Dashboard} />
-        <Stack.Screen name='Pedido' component={Pedido} />
       </Stack.Navigator>
     </NavigationContainer>
   )
@@ -196,9 +195,6 @@ function Dashboard({ navigation }) {
 }
 
 
-function Pedido({ navigation }) {
-
-}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
