@@ -34,7 +34,7 @@ model Cliente {
   cep         String
   rua         String
   numero      String
-  complemento String?
+  complemento String
   bairro      String
   cidade      String
   estado      String

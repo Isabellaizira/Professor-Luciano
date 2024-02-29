@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { CriarItensServices } from '../Services/Itens/CriarItensServices'
+import { CriarItensServices } from '../../Services/Itens/CriarItensServices'
 
 
 class CriarItensController {
