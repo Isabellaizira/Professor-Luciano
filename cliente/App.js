@@ -14,6 +14,7 @@ export default function App() {
       <Stack.Navigator initialROuteName='Login'>
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Dashboard' component={Dashboard} />
+        <Stack.Screen name='Produtos' component={Produtos} />
       </Stack.Navigator>
     </NavigationContainer>
   )
@@ -83,9 +84,10 @@ function Login({ navigation }) {
         onChangeText={setPassword}
       />
 
-      <TouchableOpacity onPress={handleLogin} style={styles.buttonEnviar}>
+      {/* <TouchableOpacity onPress={handleLogin} style={styles.buttonEnviar}>
         <Text style={styles.buttonEnviarText}>Enviar</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}><Text>Enviar</Text></TouchableOpacity>
 
       <TouchableOpacity onPress={handleAsyncNome} style={styles.buttonAsyncNome}>
         <Text style={styles.buttonEnviarText}>Async_Nome</Text>
@@ -159,7 +161,7 @@ function Dashboard({ navigation }) {
       <Text style={styles.titulo}> Dashboard</Text>
 
       <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.buttonEnviar}>
-        <Text style={styles.buttonEnviarText} >Retornar para Login</Text>
+        <Text style={styles.buttonEnviarText}>Retornar para Login</Text>
       </TouchableOpacity>
 
       <TextInput
@@ -194,7 +196,18 @@ function Dashboard({ navigation }) {
 
 }
 
+function Produtos({ navigation}) {
+const [nome, setNome] = useState('')
+const [fabricante, setFabricante] = useState('')
+const [quantidade, setQuantidade] = useState('')
+const [preco, setPreco] = useState('')
+const [file, setFile] = useState('')
+const [categoriaID, setCategoriaID] = useState('')
 
+async function handleCadatrar(){
+  
+}
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
