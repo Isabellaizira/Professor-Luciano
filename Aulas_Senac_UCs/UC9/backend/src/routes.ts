@@ -31,6 +31,13 @@ import { ListarPedidoUnicoController } from './Controller/Pedidos/ListarPedidoUn
 import { ListarItemUnicoController } from './Controller/Itens/ListarItemController'
 import { ListarProdutoUnicoController } from './Controller/Produtos/ListarProdutoUnicoController'
 
+//Alterar
+import { AlterarClientesController } from './Controller/Clientes/AlterarClientesController'
+import { AlterarItensController } from './Controller/Itens/AlteraItensController'
+import { AlterarPedidoController } from './Controller/Pedidos/AlterarPedidoController'
+import { AlterarProdutosController } from './Controller/Produtos/AlterarProdutosController'
+
+
 import { isAutenticado } from './middleware/isAutenticado'
 
 const router = Router()
@@ -65,6 +72,12 @@ router.get('/Listar1Cliente', isAutenticado, new ListarUnicoClienteController().
 router.get('/Listar1Pedido', isAutenticado, new ListarPedidoUnicoController().handle)
 router.get('/Listar1Item', isAutenticado, new ListarItemUnicoController().handle)
 router.get('/Listar1Produto', isAutenticado, new ListarProdutoUnicoController().handle)
+
+//Alterar
+router.put('AlterarCliente', new AlterarClientesController().handle)
+router.put('/AlterarItem', new AlterarItensController().handle)
+router.put('/AlterarPedido', new AlterarPedidoController().handle)
+router.put('/AlterarProduto', new AlterarProdutosController().handle)
 
 
 export { router }
