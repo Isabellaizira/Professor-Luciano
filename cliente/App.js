@@ -156,7 +156,7 @@ function Dashboard({ navigation }) {
     acompanhamentoPedido()
   }, [])
 
-   return (
+  return (
     <View style={styles.container}>
       <Text style={styles.titulo}> Dashboard</Text>
 
@@ -196,17 +196,49 @@ function Dashboard({ navigation }) {
 
 }
 
-function Produtos({ navigation}) {
-const [nome, setNome] = useState('')
-const [fabricante, setFabricante] = useState('')
-const [quantidade, setQuantidade] = useState('')
-const [preco, setPreco] = useState('')
-const [file, setFile] = useState('')
-const [categoriaID, setCategoriaID] = useState('')
+function Produtos({ navigation }) {
+  const [nome, setNome] = useState('')
+  const [fabricante, setFabricante] = useState('')
+  const [quantidade, setQuantidade] = useState('')
+  const [preco, setPreco] = useState('')
+  const [file, setFile] = useState('')
+  const [categoriaID, setCategoriaID] = useState('')
 
-async function handleCadatrar(){
-  
+  async function handleCadatrar() {
+    try {
+      const resposta = await apiLocal.post('/CriarProdutos', {
+        nome,
+        fabricante,
+        quantidade,
+        preco,
+        file,
+        categoriaID
+      })
+      navigation.navigate('Menu')
+    } catch (error) {
+
+    }
+
+  }
 }
+
+function Categoria({ navigation }) {
+  const [nome, setNome] = useState('')
+
+  async function handleCadastrar() {
+    try {
+await apiLocal.post('/CriarCategorias', {
+  nome
+})
+    } catch { }
+  }
+  return (
+    <div>
+      <form onSubmit={handleCadastrar}>
+
+      </form>
+    </div>
+  )
 }
 const styles = StyleSheet.create({
   container: {

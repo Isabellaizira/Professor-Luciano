@@ -7,7 +7,6 @@ interface AlterarPedido{
 
 class AlterarPedidoServices {
     async execute({ id, alteraStatus }: AlterarPedido){
-         const data = new Date(Date.now())
          await prismaClient.pedido.update({
             where:{
                 id:id

@@ -14,3 +14,5 @@ class AlterarPedidoController {
 }
 
 export { AlterarPedidoController }
+
+//esse altera pedido é para mudar de pedido aguardando, para apedido aceito 
