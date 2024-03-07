@@ -1,18 +1,19 @@
 import prismaClient from '../../prisma'
 
-interface ListarItem{
+interface ListarItem {
     id: string
 }
 
-class ListarItemUnicoServices{
-    async execute({ id }: ListarItem){
-        const resposta = await prismaClient.itens.findUnique({
-            where:{
-                id: id
+class ListarItemUnicoServices {
+    async execute({ id }: ListarItem) {
+        const resposta = await prismaClient.itens.findMany({
+            where: {
+                pedidoId: id
             },
-            select:{
-                id: true
-                
+            include: {
+                produtos: true,
+                pedido:true
+
             }
         })
         return resposta

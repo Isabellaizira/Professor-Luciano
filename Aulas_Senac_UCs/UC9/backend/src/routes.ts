@@ -28,7 +28,7 @@ import { ListarItensController } from './Controller/Itens/ListarItensController'
 //Listar Unico
 import { ListarUnicoClienteController } from './Controller/Clientes/ListarUnicoClienteController'
 import { ListarPedidoUnicoController } from './Controller/Pedidos/ListarPedidoUnicoController'
-import { ListarItemUnicoController } from './Controller/Itens/ListarItemController'
+import { ListarItemUnicoController } from './Controller/Itens/ListarItemUnicoController'
 import { ListarProdutoUnicoController } from './Controller/Produtos/ListarProdutoUnicoController'
 
 //Alterar
