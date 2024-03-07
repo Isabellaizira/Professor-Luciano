@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 export default function Cozinha(){
     return(
         <div>
-            <h1>404</h1>
-            <h2>Página Não Encontrada</h2>
+            <h1>Cozinha</h1>
+            <h2>Pedidos:</h2>
             <Link to='/Inicio' >Voltar para o Início</Link>
         </div>
     )
