@@ -6,13 +6,19 @@ function App() {
 
   const [ nome, setNome ] = useState('')
 
+  //  const [ nome, setNome ] = useState(['']) com chaves dentro do parenteses, é quando o que vamos chamar se for um array de objetos
+
+
+
   const [ modalAberto, setModalAberto ] = useState(false)
 
-   function abrirModal(){
+   async function abrirModal(){
+   //sempre que a função for ter conexão com o banco de dados ela será assincrona
     setModalAberto(true)
    }
 
    function fecharModal(){
+    //se for uma função que ficará apenas no componente não há necessidade de ser assincrona
    setModalAberto(false)
    }
    
@@ -46,3 +52,25 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
