@@ -3,9 +3,17 @@ import { hash, compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
 
 interface CriarMotoqueiro {
-    id: string
     nome: string
     nusuarios: string
+    password: string
+}
+
+interface Token {
+    id:string
+}
+
+interface Login {
+    nusuario: string
     password: string
 }
 
@@ -33,7 +41,7 @@ class MotoqueirosServices {
         return { Resposta: 'Cadastro Efetuado com sucesso' }
     }
 
-    async ListarToken({ id }: CriarMotoqueiro) {
+    async ListarToken({ id }: Token) {
         const resposta = await prismaClient.motoqueiro.findUnique({
             where: {
                 id: id
@@ -46,10 +54,10 @@ class MotoqueirosServices {
         return resposta
     }
 
-    async loginMoto({ nusuarios, password }: CriarMotoqueiro) {
+    async loginMoto({ nusuario, password }: Login) {
       const usuario = await prismaClient.motoqueiro.findFirst({
         where: {
-            nusuario:nusuarios
+            nusuario:nusuario
         }
       })
       if (!usuario) {

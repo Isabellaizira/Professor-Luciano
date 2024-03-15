@@ -19,6 +19,12 @@ interface Cliente {
     estado: string
 }
 
+interface Login {
+    email: string
+    password: string
+}
+
+//Criar
 class ClienteServices {
     async criarCliente({
         nome,
@@ -63,12 +69,15 @@ class ClienteServices {
         })
         return ({ Dados: 'Cadastro Efetuado com Sucesso' })
     }
+
+    //Listar
     async listarClientes() {
         const resposta = await prismaClient.cliente.findMany({})
         return resposta
     }
 
-    async loginCliente({ email, password }: Cliente) {
+    //Login
+    async loginCliente({ email, password }: Login) {
         const cliente = await prismaClient.cliente.findFirst({
             where: {
                 email: email
